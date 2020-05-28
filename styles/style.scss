@@ -1,0 +1,1060 @@
+@import "base/base";
+@import "base/mixin";
+@import "base/variables";
+@import "base/fonts";
+
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.hat {
+    width: 100%;
+    height: 90px;
+    background-color: $header-bg;
+}
+
+.header_center_block {
+    margin: 0 auto;
+    width: 45%;
+    height: 100%;
+    @include justFlex(row, nowrap, space-between, center);
+
+    .join_btn {
+        display: flex;
+    }
+}
+
+.btn {
+    width: 50px;
+    height: 42px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color, 150ms;
+
+    &:hover {
+        background-color: $btn-hover-bg;
+    }
+
+    &:focus {
+        box-shadow: 0 0 1px 3px $btn-focus-shadow;
+        background-color: $btn-hover-bg;
+    }
+}
+
+.btn_login,
+.btn_html_edit {
+    border-radius: 5px;
+}
+
+.btn_bold_text,
+.btn_text_left,
+.btn_font_family {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.btn_lineThrough_text,
+.btn_text_right,
+.btn_background {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.btn_html_edit {
+    background-image: url(svg/html-coding.svg);
+    background-position: center;
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+    background-color: $btn-hover-bg;
+    cursor: default;
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+// add this class to btn_html_edit , when the login and password === true.
+.onEditBtn {
+    background-color: white;
+    cursor: pointer;
+    &:hover {
+        background-color: $btn-hover-bg;
+    }
+
+    &:focus {
+        box-shadow: 0 0 1px 3px $btn-focus-shadow;
+        background-color: $btn-hover-bg;
+    }
+}
+// ===========================================================
+.btn_bold_text {
+    @include fonts-style($header-font, normal, 700, 22px, black);
+}
+
+.btn_italic_text {
+    @include fonts-style($header-font, italic, 400, 22px, black);
+}
+
+.btn_underLine_text {
+    background-image: url(svg/underline_.svg);
+    background-position-y: 13px;
+    background-position-x: center;
+    background-size: 35% 45%;
+    background-repeat: no-repeat;
+}
+
+.btn_lineThrough_text {
+    background-image: url(svg/strikethrough.svg);
+    background-position: center;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.btn_text_left,
+.btn_text_center,
+.btn_text_right {
+    background-position: center;
+    background-size: 40% 40%;
+    background-repeat: no-repeat;
+}
+
+.btn_text_left {
+    background-image: url(svg/text.svg);
+}
+
+.btn_text_center {
+    background-image: url(svg/align.svg);
+}
+
+.btn_text_right {
+    background-image: url(svg/right-align.svg);
+}
+
+.btn_font_family {
+    @include fonts-style($header-font, normal, 400, 22px, black);
+    text-align: start;
+    position: relative;
+    padding-left: 8px;
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-image: url(svg/down-arrow.svg);
+        background-position: center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        top: 17px;
+        left: 30px;
+    }
+}
+
+.join_btn {
+    position: relative;
+
+    .choose_font_family {
+        position: absolute;
+        width: 210px;
+        // height: 247px;
+        height: 265px;
+        top: 48px;
+        left: -160px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 6px 0 $btn-focus-shadow;
+        display: none;
+
+        ul {
+            margin-top: 7px;
+        }
+
+        .font_family {
+            padding: 11px 20px;
+            font-size: 17px;
+            transition: background-color, 150ms;
+
+            &:hover {
+                background-color: $option-hover-bg;
+            }
+
+            &:focus {
+                background-color: $option-focus-bg;
+                color: $option-focus-txt-color;
+            }
+
+            cursor: pointer;
+        }
+
+        .family_Arial {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .family_Georgia {
+            font-family: Georgia, "Times New Roman", Times, serif;
+        }
+
+        .family_Impact {
+            font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        }
+
+        .family_Rubik {
+            font-family: rubik;
+        }
+
+        .family_TimesNewRoman {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .family_Verdana {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    }
+
+    .choose_font_size {
+        position: absolute;
+        width: 160px;
+        height: 375px;
+        top: 48px;
+        left: -60px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 6px 0 $btn-focus-shadow;
+        display: none;
+
+        ul {
+            margin-top: 7px;
+        }
+
+        .font_size {
+            padding: 11px 20px;
+            transition: background-color, 150ms;
+            font-family: rubik;
+            &:hover {
+                background-color: $option-hover-bg;
+            }
+
+            &:focus {
+                background-color: $option-focus-bg;
+                color: $option-focus-txt-color;
+            }
+
+            cursor: pointer;
+        }
+
+        .size12 {
+            font-size: 12px;
+        }
+
+        .size14 {
+            font-size: 14px;
+        }
+
+        .size16 {
+            font-size: 16px;
+        }
+
+        .size18 {
+            font-size: 18px;
+        }
+
+        .size20 {
+            font-size: 20px;
+        }
+
+        .size22 {
+            font-size: 22px;
+        }
+
+        .size25 {
+            font-size: 25px;
+        }
+
+        .size30 {
+            font-size: 30px;
+        }
+    }
+}
+
+.btn_font_size {
+    background-image: url(svg/font.svg);
+    background-position-y: center;
+    background-position-x: 7px;
+    background-size: 42% 42%;
+    background-repeat: no-repeat;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background-image: url(svg/down-arrow.svg);
+        background-position: center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        top: 17px;
+        left: 30px;
+    }
+}
+
+.btn_text_color,
+.btn_background {
+    background-position: center;
+    background-size: 42% 42%;
+    background-repeat: no-repeat;
+}
+
+.btn_text_color {
+    background-image: url(svg/paint.svg);
+}
+
+.btn_background {
+    background-image: url(svg/picture.svg);
+}
+
+.btn_login {
+    background-image: url(svg/lockOn.svg);
+    background-position: center;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+}
+// add this class when we sing in true
+.btn_login_lock_true {
+    background-image: url(svg/lockOff.svg);
+}
+// -----------------------------------------
+.text {
+    padding: 20px 30px;
+}
+
+// p {
+//     // padding: 10px 0;
+// }
+
+.content {
+    position: relative;
+    height: 100vh;
+
+    .opacityWindow {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        background-color: $blur-for-window;
+        display: none;
+    }
+    .opacityWindow_bg {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        background-color: $blur-for-window;
+        display: none;
+    }
+
+    .opacityWindow_sing_in {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        background-color: $blur-for-window;
+        display: none;
+    }
+
+    .opacityWindow_sing_out {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        background-color: $blur-for-window;
+        display: none;
+    }
+}
+
+.choose_text_color {
+    position: absolute;
+    width: 580px;
+    height: 335px;
+    border-radius: 4px;
+    background-color: white;
+    margin: -150px 31.5%;
+    box-shadow: 0 0 1px 1px $option-hover-bg;
+    padding: 20px;
+}
+
+.title_block_text_color {
+    width: 100%;
+    height: 50px;
+    @include justFlex(row, wrap, space-between, center);
+    .svg_close {
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+        fill: $fill_close_btn;
+        transition: fill, 150ms;
+        &:hover {
+            fill: $fill_hover_close_btn;
+        }
+    }
+
+    .title_text_color {
+        @include fonts-style(rubik, normal, normal, 25px, black);
+    }
+}
+
+.color_container {
+    box-shadow: inset 0px 1px 0px 0px rgba(82, 82, 82, 0.281);
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 100%;
+    height: 240px;
+    @include justFlex(row, wrap, space-between, center);
+    .color {
+        width: 69px;
+        height: 70px;
+        border-radius: 7px;
+        background-color: blue;
+        cursor: pointer;
+    }
+    .color:nth-last-of-type(1) {
+        background-color: rgb(133, 245, 198);
+    }
+    .color:nth-last-of-type(2) {
+        background-color: rgb(31, 226, 80);
+    }
+    .color:nth-last-of-type(3) {
+        background-color: rgb(86, 226, 31);
+    }
+    .color:nth-last-of-type(4) {
+        background-color: rgb(36, 126, 0);
+    }
+    .color:nth-last-of-type(5) {
+        background-color: rgb(117, 138, 0);
+    }
+    .color:nth-last-of-type(6) {
+        background-color: rgb(138, 101, 0);
+    }
+    .color:nth-last-of-type(7) {
+        background-color: rgb(138, 51, 0);
+    }
+    .color:nth-last-of-type(8) {
+        background-color: rgb(138, 5, 0);
+    }
+    .color:nth-last-of-type(9) {
+        background-color: rgb(255, 0, 0);
+    }
+    .color:nth-last-of-type(10) {
+        background-color: rgb(255, 0, 128);
+    }
+    .color:nth-last-of-type(11) {
+        background-color: rgb(255, 0, 255);
+    }
+    .color:nth-last-of-type(12) {
+        background-color: rgb(153, 0, 255);
+    }
+    .color:nth-last-of-type(13) {
+        background-color: rgb(4, 162, 202);
+    }
+    .color:nth-last-of-type(14) {
+        background-color: rgb(1, 68, 156);
+    }
+    .color:nth-last-of-type(15) {
+        background-color: rgb(7, 4, 202);
+    }
+    .color:nth-last-of-type(16) {
+        background-color: rgb(0, 65, 119);
+    }
+    .color:nth-last-of-type(17) {
+        background-color: rgb(46, 0, 119);
+    }
+    .color:nth-last-of-type(18) {
+        background-color: rgb(42, 0, 54);
+    }
+    .color:nth-last-of-type(19) {
+        background-color: rgb(7, 1, 36);
+    }
+    .color:nth-last-of-type(20) {
+        background-color: rgb(0, 0, 0);
+    }
+    .color:nth-last-of-type(21) {
+        background-color: rgb(241, 231, 231);
+    }
+}
+
+.choose_background {
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    border-radius: 4px;
+    background-color: white;
+    margin: -150px 31.5%;
+    box-shadow: 0 0 1px 1px $option-hover-bg;
+    // padding: 20px;
+    .title_block_background {
+        padding: 10px 20px;
+        width: 600px;
+    }
+}
+.title_text_color {
+    font-size: 17px;
+}
+.menu_bg {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    box-shadow: 0 -1px 0px 0 rgba(224, 220, 220, 0.884);
+}
+
+.type_bg {
+    width: 90px;
+    height: 100%;
+    // border: 1px solid rgb(202, 202, 202);
+    text-align: center;
+    line-height: 40px;
+    @include fonts-style(rubik, normal, 500, 18px, rgb(2, 56, 233));
+    box-shadow: 0 1px 0px 0 rgba(224, 220, 220, 0.884);
+    cursor: pointer;
+}
+.color_container_for_bg {
+    padding: 0 20px 20px;
+    box-shadow: none;
+    width: 600px;
+    height: 290px;
+    // display: none;
+    .color {
+        width: 74px;
+        height: 80px;
+    }
+}
+.title_block_background {
+    height: 60px;
+}
+.active_btn {
+    border-left: 1.5px solid rgb(209, 209, 209);
+    border-right: 1.5px solid rgb(209, 209, 209);
+    border-top: 1.5px solid rgb(209, 209, 209);
+    border-bottom: 1px solid rgb(255, 255, 255);
+    box-shadow: none;
+    border-radius: 3px;
+    cursor: default;
+    color: black;
+}
+.shadow-light {
+    box-shadow: 0 1px 0px 0 rgba(224, 220, 220, 0.884);
+    width: 54%;
+}
+
+.img_container_hide {
+    display: none;
+}
+.img_container {
+    padding: 12.5px 20px;
+    width: 600px;
+    height: 295px;
+    @include justFlex(row, wrap, space-around, center);
+
+    .img {
+        width: 160px;
+        height: 80px;
+        border-radius: 10px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        cursor: pointer;
+    }
+
+    .img:nth-last-of-type(9) {
+        background-image: url(images/andrew-buchanan-mEOTVEvbrfo-unsplash.jpg);
+    }
+    .img:nth-last-of-type(8) {
+        background-image: url(images/wolfgang-hasselmann-GNe-0GkGDVk-unsplash.jpg);
+    }
+    .img:nth-last-of-type(7) {
+        background-image: url(images/marian-kroell-ABLmT52W1vs-unsplash.jpg);
+    }
+    .img:nth-last-of-type(6) {
+        background-image: url(images/alexandre-desbos-apUZ_oP7fJQ-unsplash.jpg);
+    }
+    .img:nth-last-of-type(5) {
+        background-image: url(images/breno-machado-in9-n0JwgZ0-unsplash.jpg);
+    }
+    .img:nth-last-of-type(4) {
+        background-image: url(images/chris-yang-iIlo7yQtvGI-unsplash.jpg);
+    }
+    .img:nth-last-of-type(3) {
+        background-image: url(images/john-towner-JgOeRuGD_Y4-unsplash.jpg);
+    }
+
+    .img:nth-last-of-type(2) {
+        background-image: url(images/michal-parzuchowski-HbhJyWnE9Oo-unsplash.jpg);
+    }
+    .img:nth-last-of-type(1) {
+        background-image: url(images/sven-scheuermeier-VNseEaTt9w4-unsplash.jpg);
+    }
+}
+
+.file_container {
+    position: relative;
+    height: 40px;
+    padding: 20px;
+    width: 560px;
+    display: none;
+}
+
+.file {
+    overflow: hidden;
+    position: absolute;
+    opacity: 0;
+    width: 0.1px;
+    height: 0.1px;
+    z-index: -1;
+}
+
+.file + label {
+    display: block;
+    width: 550px;
+    height: 40px;
+    @include fonts-style(rubik, normal, 500, 19px, rgba(32, 32, 32, 0.842));
+    padding-left: 10px;
+    line-height: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 0 rgb(184, 184, 184);
+    position: relative;
+    &::after {
+        position: absolute;
+        content: "Browse";
+        // border-left: 1px solid rgb(184, 184, 184);
+        width: 80px;
+        height: 100%;
+        right: 0px;
+        @include fonts-style(rubik, normal, 700, 15px, rgba(36, 35, 35, 0.678));
+        text-align: center;
+        cursor: pointer;
+        background-color: $btn-hover-bg;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        box-shadow: 0 0 3px 0 rgb(184, 184, 184);
+    }
+    &:focus {
+        box-shadow: 0 0 4px 2px $input_focus_shadow;
+    }
+}
+
+.add_text_right {
+    text-align: right;
+}
+
+.add_text_center {
+    text-align: center;
+}
+
+.add_text_left {
+    text-align: left;
+}
+
+// add and remove this class when we press line-through button
+.toggle_lineThrough {
+    text-decoration: line-through;
+}
+
+// add and remove this class when we press under-line button
+.toggle_underline {
+    text-decoration: underline;
+}
+
+// add and remove this class when we press italic button
+.toggle_cursive_text {
+    font-style: italic;
+}
+
+// add and remove this class when we press bold button
+.toggle_text_bold {
+    font-weight: 900;
+}
+// show small content
+.small_container_for_file {
+    height: 191px;
+}
+
+.block_singIn {
+    position: absolute;
+    width: 600px;
+    height: 330px;
+    border-radius: 4px;
+    background-color: white;
+    margin: -150px 30.5%;
+    box-shadow: 0 0 1px 1px $option-hover-bg;
+
+    .title_singIn {
+        padding: 25px;
+        text-align: center;
+        @include fonts-style(rubik, normal, 600, 30px, rgba(37, 32, 32, 0.842));
+        box-shadow: 0 1px 0 0 rgba(190, 190, 190, 0.575);
+    }
+
+    .form_singIn {
+        width: 100%;
+        padding: 20px;
+        @include justFlex(column, nowrap, center, flex-start);
+        input {
+            width: 100%;
+            border: none;
+            outline: none;
+            height: 42px;
+            border-radius: 5px;
+            cursor: pointer;
+            @include fonts-style(rubik, normal, 500, 17px, rgba(0, 0, 0, 0.842));
+
+            &:focus {
+                box-shadow: 0 0 2px 2px $input_focus_shadow;
+            }
+        }
+
+        .login_input {
+            box-shadow: 0 0 3px 0px $form_box_shadow_color;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            &::placeholder {
+                @include fonts-style(rubik, normal, 500, 16px, rgba(37, 32, 32, 0.842));
+            }
+        }
+
+        .password_input {
+            box-shadow: 0 0 3px 0px $form_box_shadow_color;
+            padding-left: 15px;
+            &::placeholder {
+                @include fonts-style(rubik, normal, 500, 16px, rgba(37, 32, 32, 0.842));
+            }
+        }
+        .warning {
+            padding: 20px;
+            margin: 0 auto;
+            @include fonts-style(rubik, normal, 500, 16px, $input_false_boxShadow);
+        }
+        .input_btn_singIn {
+            background-color: $input_btn;
+            @include fonts-style(rubik, normal, 500, 20px, rgb(255, 255, 255));
+            transition: background-color, box-shadow, 150ms;
+            &:hover {
+                background-color: $input_btn_hover;
+            }
+            &:focus {
+                box-shadow: 0 0 2px 3.5px $input_btn_focus;
+            }
+        }
+    }
+}
+
+.content_edit {
+    width: 100%;
+    height: 100vh;
+    display: none;
+}
+
+.het_edit {
+    width: 100%;
+    height: 90px;
+    background-color: $header-bg;
+    @include justFlex(row, wrap, center, center);
+}
+.center_block_for_btn {
+    display: flex;
+}
+#edit_text_content {
+    width: 100%;
+    height: 87%;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    font-size: 18px;
+}
+.btn_for_Save {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.btn_for_Ul {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.btn_for_Save,
+.btn_for_Ul,
+.btn_for_table,
+.btn_for_Ol {
+    background-size: 50% 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.btn_for_Save {
+    background-image: url(svg/save.svg);
+}
+.btn_for_table {
+    background-image: url(svg/table.svg);
+}
+.btn_for_Ol {
+    background-image: url(svg/list.svg);
+}
+.btn_for_Ul {
+    background-image: url(svg/listUl.svg);
+}
+
+.box_for_btn {
+    width: 300px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+    @include justFlex(row, wrap, space-between, center);
+
+    .cancel,
+    .btn_sing_out {
+        width: 120px;
+        height: 40px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        @include fonts-style(rubik, normal, 500, 16px, white);
+        cursor: pointer;
+        transition: background-color, 150ms;
+    }
+    .cancel {
+        background-color: rgba(14, 14, 14, 0.932);
+        &:focus {
+            box-shadow: 0 0 2px 2px rgba(31, 31, 31, 0.836);
+        }
+        &:hover {
+            background-color: rgb(0, 0, 0);
+        }
+    }
+    .btn_sing_out {
+        background-color: rgb(177, 2, 2);
+        &:focus {
+            box-shadow: 0 0 2px 2px rgba(240, 2, 2, 0.801);
+        }
+        &:hover {
+            background-color: rgb(148, 1, 1);
+        }
+    }
+}
+
+.content_edit {
+    position: relative;
+    display: none; // need to close late
+    .create_table_and_list_window_opacity {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        background-color: $blur-for-window;
+        display: none;
+    }
+}
+
+.create_table_block {
+    margin: -250px auto;
+    width: 800px;
+    height: 505px;
+    background-color: white;
+    border-radius: 8px;
+    display: none;
+}
+
+.block_for_title_table {
+    width: 100%;
+    height: 70px;
+    padding: 20px;
+    @include justFlex(row, wrap, space-between, center);
+    box-shadow: 0 1px 0 0 rgba(226, 226, 226, 0.637);
+    .close_table {
+        width: 18px;
+        height: 18px;
+        fill: $fill_close_btn;
+        transition: fill, 200ms;
+        &:hover {
+            fill: $fill_hover_close_btn;
+            cursor: pointer;
+        }
+    }
+
+    .title_create_table {
+        @include fonts-style(rubik, normal, 600, 24px, rgb(22, 21, 21));
+        cursor: default;
+    }
+}
+.create_table_form {
+    width: 100%;
+    @include justFlex(row, wrap, space-between, center);
+    padding: 0px 20px 20px;
+    .input_block {
+        width: 48%;
+    }
+    .join_inputs {
+        width: 48%;
+        @include justFlex(row, wrap, space-between, center);
+    }
+    .title_input_create_table {
+        margin: 25px 0 15px;
+        @include fonts-style(rubik, normal, 500, 22px, rgb(22, 21, 21));
+    }
+    .input_create_table {
+        width: 100%;
+        height: 40px;
+        padding: 0 12px;
+        @include fonts-style(rubik, normal, 500, 16px, rgb(36, 35, 35));
+        border: none;
+        outline: none;
+        border-radius: 3px;
+        box-shadow: 0 0 2px 0 rgb(165, 165, 165);
+        cursor: pointer;
+
+        &::placeholder {
+            @include fonts-style(rubik, normal, 500, 16px, rgb(92, 89, 89));
+        }
+        &:focus {
+            box-shadow: 0 0 2px 2px $input_focus_shadow;
+        }
+    }
+    .warning {
+        width: 100%;
+        padding: 15px 0 5px;
+        text-align: center;
+        @include fonts-style(rubik, normal, 500, 16px, $input_false_boxShadow);
+    }
+    .btn_cr_table {
+        width: 48%;
+        height: 45px;
+        border-radius: 4px;
+        border: none;
+        outline: none;
+        margin-top: 10px;
+        cursor: pointer;
+        @include fonts-style(rubik, normal, 500, 18px, white);
+        transition: background-color, 250ms;
+    }
+
+    .btn_reset_table {
+        background-color: rgb(206, 0, 0);
+        &:hover {
+            background-color: rgb(173, 0, 0);
+        }
+        &:focus {
+            box-shadow: 0 0 5px 2px rgb(247, 0, 0);
+        }
+    }
+    .btn_create_table {
+        background-color: rgb(0, 161, 35);
+        &:hover {
+            background-color: rgb(0, 122, 27);
+        }
+        &:focus {
+            box-shadow: 0 0 5px 2px rgb(0, 206, 45);
+        }
+    }
+}
+
+.create_list {
+    width: 500px;
+    height: 400px;
+    margin: -250px auto;
+    border-radius: 7px;
+    background-color: white;
+    .block_for_title_list {
+        width: 100%;
+        height: 70px;
+        padding: 20px;
+        @include justFlex(row, wrap, space-between, center);
+        box-shadow: 0 1px 0 0 rgba(226, 226, 226, 0.637);
+        .title_create_list {
+            @include fonts-style(rubik, normal, 600, 24px, rgb(22, 21, 21));
+            cursor: default;
+        }
+        .close_list {
+            width: 18px;
+            height: 18px;
+            fill: $fill_close_btn;
+            transition: fill, 200ms;
+            &:hover {
+                fill: $fill_hover_close_btn;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.create_list_ol{
+    display: none;
+}
+.create_list_ul{
+    display: none;
+}
+
+.form_for_list {
+    width: 100%;
+    padding: 0 20px 20px;
+
+    .title_input_create_list {
+        margin: 25px 0 15px;
+        @include fonts-style(rubik, normal, 500, 22px, rgb(22, 21, 21));
+    }
+
+    .input_for_list {
+        width: 100%;
+        height: 40px;
+        padding: 0 12px;
+        @include fonts-style(rubik, normal, 500, 16px, rgb(36, 35, 35));
+        border: none;
+        outline: none;
+        border-radius: 3px;
+        box-shadow: 0 0 2px 0 rgb(165, 165, 165);
+        cursor: pointer;
+
+        &::placeholder {
+            @include fonts-style(rubik, normal, 500, 16px, rgb(92, 89, 89));
+        }
+        &:focus {
+            box-shadow: 0 0 2px 2px $input_focus_shadow;
+        }
+    }
+    .warning {
+        width: 100%;
+        padding: 15px 0 5px;
+        text-align: center;
+        @include fonts-style(rubik, normal, 500, 16px, $input_false_boxShadow);
+    }
+    .two_button_forCreate_list {
+        width: 100%;
+        @include justFlex(row, wrap, space-between, center);
+        .btn_cr_list {
+            width: 48%;
+            height: 45px;
+            border-radius: 4px;
+            border: none;
+            outline: none;
+            margin-top: 10px;
+            cursor: pointer;
+            @include fonts-style(rubik, normal, 500, 18px, white);
+            transition: background-color, 250ms;
+        }
+        .btn_reset_list{
+            background-color: rgb(206, 0, 0);
+            &:hover {
+                background-color: rgb(173, 0, 0);
+            }
+            &:focus {
+                box-shadow: 0 0 5px 2px rgb(247, 0, 0);
+            }
+        }
+        .btn_create_list2 {
+            background-color: rgb(0, 161, 35);
+            &:hover {
+                background-color: rgb(0, 122, 27);
+            }
+            &:focus {
+                box-shadow: 0 0 5px 2px rgb(0, 206, 45);
+                
+            }
+        }
+    }
+}
